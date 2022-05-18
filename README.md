@@ -27,9 +27,26 @@ The dataset used is [FitBit Fitness Tracker Data](https://www.kaggle.com/dataset
 3. The dataset is outdated since it was collected in 2016. Technology, especially smart watch technology, rapidly changes, so the data obtained may not be 100% accurate. For instance, the ability to track steps via smart watch is not 100% accurate, often with -10% tolerance.
 
 ### Data Organization and Description
-The dataset downloaded was observed to be in Microsoft Excel CSV file format. There were 18 CSV files that consist of daily activity (calories, different forms of intensities, steps, and calories). The data is also detailed further by hourly and minutes. Below table shows the data I used and a description.
+The dataset downloaded is observed to be in Microsoft Excel CSV file format. There are 18 CSV files and a description of each one is shown in the table below.
 
-Left aligned Header | Right aligned Header | Description
-| :--- | :---: | :---:
-Content Cell  | Content Cell | Content Cell
-Content Cell  | Content Cell | Content Cell
+Table Name | Description
+| :--- | :---
+dailyActivity_merged  | Daily activity of 33 users in 31 day period. Tracks total steps, total distance, logged activities (in distance), intensities in minutes and distance, and calories
+dailyCalories_merged  | Daily calorie burn of 33 users in 31 day period
+dailyIntensities_merged | Daily intensities of 33 users in 31 day period. Tracks intensities in minutes and distance
+dailySteps_merged | Daily steps of 33 users in 31 day period
+heartrate_seconds_merged | Heartrate monitor of 7 users in every second in 31 day period
+hourlyCalories_merged | Hourly calorie burn of 33 users in 31 day period
+hourlyIntensities_merged | Hourly intensity and average intensity of 33 users in 31 day period
+hourlySteps_merged | Hourly steps of 33 users in 31 day period
+minuteCaloriesNarrow_merged	| Minute recording of calories burn of 33 users in 31 day period (single row format)
+minuteCaloriesWide_merged |  Minute recording of calories burn of 33 users in 31 day period (single column format) 
+minuteIntensitiesNarrow_merged | Minute recording of intensities of 33 users in 31 day period (single row format)
+minuteIntensitiesWide_merged | Minute recording of intensities of 33 users in 31 day period (single column format)
+minuteMETsNarrow_merged | Minute recording of Metabolic equivalent (MET) of 27 users in 31 day period (single row format)
+minuteSleep_merged | Minute recording of sleep logs of 24 users over 31 days. Value column consist of integers 1, 2, and 3, which are unknown values.
+minuteStepsNarrow_merged	| Minute recording of steps of 33 users in 31 day period (single row format)
+minuteStepsWide_merged | Minute recording of steps of 33 users in 31 day period (single column format)
+sleepDay_merged | Sleep log of 33 users in 31 day period. Tracks number of sleep in a day (nap or sleep), total minutes asleep, and total time in bed.
+weightLogInfo_merged	| 
+
