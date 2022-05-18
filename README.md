@@ -59,6 +59,99 @@ My analysis will focus on the following datasets:
 - sleepDay_merged (renamed to sleepDay from herein)
 
 ## Cleaning Process
-1. To determine the data integrity of the datasets, I first determined 
+To determine the data integrity of the datasets, I wanted to see if there were any duplicates or outliers.
+ 
+*dailyActivity*:
+  - I used the Pivot table function in Excel to verify the time period of the analysis and the sample size of the users. After verifying that the data collected was indeed a 31 day period with 33 unique IDs, I proceeded to identify any duplicates or outliers.
+  - In Excel, I filtered and removed entries with data that shows zero (0) steps taken. The justification for this removal was that the user was probably not wearing the Fitbit that day, therefore it is not credible for analysis, as we are seeking for any activity that day.
+  - I sorted the Calories column and observed 11 users burnt less than 1200 calories a day. 1200 calories were assumed based on a calculation that 75 calories burnt an hour for absolutely doing nothing for 16 hours. I still kept this data intact because I will later explain that this data is still credible for the analysis to determine how often people wore their Fitbit. 
+ 
+*dailySteps*:
+ - In Excel, I filtered and removed zero (0) steps taken. As discussed above, we are looking for activity and wear usage of Fitbit.
+ 
+*sleepDay*:
+ - It was observed that this data was already clean and no action was taken.
+ 
+The following SQL queries were also used to determine the count of users, start and end date of the data.
+```
+ -- First, setup the project with designating variables for regular expression based analyses
+DECLARE
+ TIMESTAMP_REGEX STRING DEFAULT r'^\d{4}-\d{1,2}-\d{1,2}[T ]\d{1,2}:\d{1,2}:\d{1,2}(\.\d{1,6})? *(([+-]\d{1,2}(:\d{1,2})?)|Z|UTC)?$';
+DECLARE
+ DATE_REGEX STRING DEFAULT r'^\d{4}-(?:[1-9]|0[1-9]|1[012])-(?:[1-9]|0[1-9]|[12][0-9]|3[01])$';
+DECLARE
+ TIME_REGEX STRING DEFAULT r'^\d{1,2}:\d{1,2}:\d{1,2}(\.\d{1,6})?$';
+ 
+-- Verify dataActivity table shows a full month of recording
+SELECT MIN(ActivityDate) AS startDate, MAX(ActivityDate) AS endDate
+FROM fitbit_data.dailyActivity;
+-- Returned startDate as 2016-04-12 and endDate as 2016-05-12
+ 
+-- Verify dataActivity table shows list of users/participants
+SELECT DISTINCT Id
+FROM fitbit_data.dailyActivity;
+-- Returns 33 unique IDs
+ 
+-- Verify dailySteps table shows a full month of recording
+SELECT MIN(ActivityDay) AS startDate, MAX(ActivityDay) AS endDate
+FROM fitbit_data.dailySteps;
+-- Returned startDate as 2016-04-12 and endDate as 2016-05-12
+ 
+-- Verify dailySteps table shows list of users/participants
+SELECT DISTINCT Id
+FROM fitbit_data.dailySteps;
+-- Returns 33 unique IDs
+ 
+-- Verify sleepDay table shows list of users/participants
+SELECT DISTINCT Id
+FROM fitbit_data.sleepDay;
+-- Returns 24 unique IDs
+```
+ 
+In order to better understand our data, we noticed that column Id is the primary key that was used throughout these tables. I also verified it using the following SQL query:
+ 
+```
+-- Verify Id column is in every table. has_id_column shows 1 for TRUE or 0 for FALSE
+SELECT table_name,
+ SUM(CASE
+   WHEN column_name = "Id" THEN 1
+   ELSE 0
+ END) AS has_id_column
+FROM `fitbit_data.INFORMATION_SCHEMA.COLUMNS`
+GROUP BY 1
+ORDER BY 1 ASC;
+ -- Returns value 1 for every table, therefore it is true that every table used has an Id column.
+```
+
+# Analyze and Share Phases
+In these phases, I will dive deep into the analysis process using the clean datasets in order to answer the business task. I will look at the Fitbit daily usage in order to see if how many people are wearing their Fitbits, their physical activity cases to see what kind of people are using Fitbits, the relationship between daily steps to calories burn specifically on what day of week, and the correlation of physical activities to the average sleep. 
+
+To better understand the participants, using this article, [https://www.medicinenet.com/how_many_steps_a_day_is_considered_active/article.htm](https://www.medicinenet.com/how_many_steps_a_day_is_considered_active/article.htm, "https://www.medicinenet.com/how_many_steps_a_day_is_considered_active/article.htm"), I want to see the relationship of how many steps taken daily to their physical activity. 
+
+Using Tableau, I created the following pie graph:
+![Sheet 1 (1)](https://user-images.githubusercontent.com/90084874/169169023-88ffcbca-b61f-42e8-9535-481b2caec13c.png)
+
+Based on this pie graph, we can see a mixed group of active people. About 50% of the users are sedentary (21%) and low active (27%), while the other 50% are users who take more than 7,500 steps. This gives us a better understanding of who Fitbit users are - they can range from all different activity levels.
+
+The following SQL query aided the generation of the pie graph:
+```
+# For 33 IDs, check for the case usage of each individual per their activity level
+# We look at the average daily steps and relate that to activity level
+# Source: https://www.medicinenet.com/how_many_steps_a_day_is_considered_active/article.htm
+SELECT DISTINCT Id, AVG(StepTotal) AS avg_steps,
+ CASE
+  WHEN AVG(StepTotal) < 5000 THEN 'Sedentary'
+  WHEN AVG(StepTotal) BETWEEN 5000 AND 7499 THEN 'Low Active'
+  WHEN AVG(StepTotal) BETWEEN 7500 AND 9999 THEN 'Somewhat Active'
+  WHEN AVG(StepTotal) BETWEEN 10000 AND 12500 THEN 'Active'
+  ELSE 'Highly Active'
+ END AS activity_level
+FROM fitbit_data.dailySteps
+GROUP BY Id
+ORDER BY avg_steps ASC;
+# Create table to determine activity levels in this case study
+```
+
+
 
 
