@@ -47,6 +47,7 @@ minuteMETsNarrow_merged | Minute recording of Metabolic equivalent (MET) of 27 u
 minuteSleep_merged | Minute recording of sleep logs of 24 users over 31 days. Value column consist of integers 1, 2, and 3, which are unknown values.
 minuteStepsNarrow_merged	| Minute recording of steps of 33 users in 31 day period (single row format)
 minuteStepsWide_merged | Minute recording of steps of 33 users in 31 day period (single column format)
-sleepDay_merged | Sleep log of 33 users in 31 day period. Tracks number of sleep in a day (nap or sleep), total minutes asleep, and total time in bed.
-weightLogInfo_merged	| 
+sleepDay_merged | Sleep log of 24 users in 31 day period. Tracks number of sleep in a day (nap or sleep), total minutes asleep, and total time in bed.
+weightLogInfo_merged | Weight log (pounds and kilograms) of 8 users in 31 day period. Body fat percentage and BMI output.
+ 
 
