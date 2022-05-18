@@ -1,4 +1,4 @@
-# Google Data Analytics Course Case Study
+# Google Data Analytics Course Case Study (Bellabeat)
 ## Introduction
 In the last course of the Google Data Analytics Professional Certificate course, students are given the opportunity to complete a case study.  The aim of this case study is to provide students the ability to utilize the skills learned in the course and hopefully, through this case study, can kick start a Data Analysis career.
 
@@ -50,4 +50,15 @@ minuteStepsWide_merged | Minute recording of steps of 33 users in 31 day period 
 sleepDay_merged | Sleep log of 24 users in 31 day period. Tracks number of sleep in a day (nap or sleep), total minutes asleep, and total time in bed.
 weightLogInfo_merged | Weight log (pounds and kilograms) of 8 users in 31 day period. Body fat percentage and BMI output.
  
+# Process Phase
+I will be utilizing Microsoft Excel and Google BigQuery to ensure the dataset is clean, free from errors, and ready for analysis.
+
+My analysis will focus on the following datasets:
+- dailyActivity_merged (renamed to dailyActivity from herein)
+- dailySteps_merged (renamed to dailySteps from herein)
+- sleepDay_merged (renamed to sleepDay from herein)
+
+## Cleaning Process
+1. To determine the data integrity of the datasets, I first determined 
+
 
