@@ -158,3 +158,28 @@ In the following set, I distribute across the
 ![Dashboard 1](https://user-images.githubusercontent.com/90084874/169177282-10206eb9-1506-470b-a808-30af82f2d59a.png)
 
 
+
+## Steps?
+
+We now want to know the average steps in the 31 day period, specifically at what day of the week. This will help us determine what's the most active day to the least active day.
+
+TBD: Explain relationship of image.
+According to [CDC guidelines](https://www.cdc.gov/diabetes/prevention/pdf/postcurriculum_session8.pdf), most adults should aim for a daily goal of 10,000 steps.
+
+
+![Sheet 4](https://user-images.githubusercontent.com/90084874/169181834-26a7dee2-ff9b-4d66-a1e9-76791b05a89d.png)
+
+
+```
+# Below is a list of distinct IDs with average steps for the whole month split into days of the week.
+ SELECT
+   AVG(TotalSteps) AS avg_steps,
+   FORMAT_TIMESTAMP("%A", ActivityDate) AS day_of_week
+ FROM fitbit_data.dailyActivity
+ GROUP BY day_of_week
+ ORDER BY avg_steps DESC;
+# This case study shows that people collected were somewhat active majority of the month (7500 steps and above)
+# We determined that Tuesday and Saturday had the most average steps at 9000 steps.
+# Sunday was the least active day, but still reached the minimum of 7500 steps.
+```
+
