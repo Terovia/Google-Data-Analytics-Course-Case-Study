@@ -152,6 +152,9 @@ ORDER BY avg_steps ASC;
 # Create table to determine activity levels in this case study
 ```
 
+Since we know the Fitbit is worn by many different users, we want to determine the wear usage to further understand when users wear their smart watches.
+In the following set, I distribute across the  
 
+![Dashboard 1](https://user-images.githubusercontent.com/90084874/169177282-10206eb9-1506-470b-a808-30af82f2d59a.png)
 
 
