@@ -1,4 +1,13 @@
 # Google Data Analytics Course Case Study (Bellabeat)
+
+<p align="center">
+  <img 
+    width="300"
+    height="300"
+    src="https://media.giphy.com/media/JWuBH9rCO2uZuHBFpm/giphy.gif"
+  >
+</p>
+
 ## Introduction
 In the last course of the Google Data Analytics Professional Certificate course, students are given the opportunity to complete a case study.  The aim of this case study is to provide students the ability to utilize the skills learned in the course and hopefully, through this case study, can kick start a Data Analysis career.
 
