@@ -183,3 +183,29 @@ According to [CDC guidelines](https://www.cdc.gov/diabetes/prevention/pdf/postcu
 # Sunday was the least active day, but still reached the minimum of 7500 steps.
 ```
 
+## Calories Burn vs. Steps
+In this section, I used **R Studio Cloud's** R programming language to develop four (4) scatter plots to illustrate the different types of activities that burn the most calories.
+
+I installed tidyverse and ggpubr.
+```
+install.packages('tidyverse')
+library(tidyverse)
+```
+```
+install.packages('ggpubr')
+library(ggpubr)
+```
+
+```
+sm <- ggplot(data=daily_activity, aes(x=SedentaryMinutes, y=Calories)) + geom_point() + geom_smooth(method = "lm") + stat_regline_equation(label.x=0, label.y=3700) + stat_cor(aes(label=..r.label..), label.x=0, label.y=3200)
+
+la <- ggplot(data=daily_activity, aes(x=LightlyActiveMinutes, y=Calories)) + geom_point() + geom_smooth(method = "lm") + stat_regline_equation(label.x=0, label.y=4700) + stat_cor(aes(label=..r.label..), label.x=0, label.y=4200)
+
+fa <- ggplot(data=daily_activity, aes(x=FairlyActiveMinutes, y=Calories)) + geom_point() + geom_smooth(method = "lm") + stat_regline_equation(label.x=90, label.y=4700) + stat_cor(aes(label=..r.label..), label.x=90, label.y=4200)
+
+va <- ggplot(data=daily_activity, aes(x=VeryActiveMinutes, y=Calories)) + geom_point() + geom_smooth(method = "lm") + stat_regline_equation(label.x=20, label.y=4700) + stat_cor(aes(label=..r.label..), label.x=20, label.y=4200)
+
+ggarrange(sm, la, fa, va, labels = c("A", "B", "C", "D"), ncol = 2, nrow = 2)
+```
+![Different Activities to Calories Burn](https://user-images.githubusercontent.com/90084874/169434593-72ed6311-de4c-4795-ab5c-48c2683be485.png)
+
