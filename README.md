@@ -226,7 +226,7 @@ _The following SQL query was used:_
  ORDER BY avg_steps DESC;
 ```
 
-## Does type of activity determine how many calories burn the most?
+## Relationship Between Activity to Calorie Burn
 In this section, I used **R Studio Cloud's** R programming language to develop four (4) scatter plots to illustrate the different types of activities that burn the most calories.
 
 ![Different Activities to Calories Burn](https://user-images.githubusercontent.com/90084874/169434593-72ed6311-de4c-4795-ab5c-48c2683be485.png)
