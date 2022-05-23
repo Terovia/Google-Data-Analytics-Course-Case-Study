@@ -139,10 +139,10 @@ For this exercise, I used the following tools for analysis:
 - Google's platform, **BigQuery** for SQL
 - **Tableau Public** (see my profile [here](https://public.tableau.com/app/profile/anthony.montero#!/)) for generation of illustrations (pie charts and bar graphs), 
 -  **R Studio Cloud** (R programming language) for the four scatter plots in this section
-  - The packages I used were tidyverse and ggpubr
+    - The packages I used were tidyverse and ggpubr
 
 ## Physical Activity
-First, since we are unable to determine what kind of Fitbit users are, to better understand the what kind of participants submitted their personal data, I want to look at the relationship between daily steps taken to their physical activity. [This article discusses the different types of physical activity one can gain from the amount of steps taken daily.](https://www.medicinenet.com/how_many_steps_a_day_is_considered_active/article.htm)
+First, since we are unable to determine what kind of Fitbit users are, to better understand what kind of participants submitted their personal data, I want to look at the relationship between daily steps taken to their physical activity. [This article discusses the different types of physical activity one can gain from the amount of steps taken daily.](https://www.medicinenet.com/how_many_steps_a_day_is_considered_active/article.htm)
 
 
 ![Sheet 1 (1)](https://user-images.githubusercontent.com/90084874/169169023-88ffcbca-b61f-42e8-9535-481b2caec13c.png)
@@ -226,11 +226,14 @@ _The following SQL query was used:_
  ORDER BY avg_steps DESC;
 ```
 
-## Calories Burn
+## Does type of activity determine how many calories burn the most?
 In this section, I used **R Studio Cloud's** R programming language to develop four (4) scatter plots to illustrate the different types of activities that burn the most calories.
 
+![Different Activities to Calories Burn](https://user-images.githubusercontent.com/90084874/169434593-72ed6311-de4c-4795-ab5c-48c2683be485.png)
 
+In this, I plotted the different types of activity spent in minutes to calories burn. We can see, using the regression line, that in plot D, being very active had the strongest effect on daily calorie burn. **We can conclude that the more active you are, the more calories you burn.**
 
+_The following code in R was used:_
 ```
 sm <- ggplot(data=daily_activity, aes(x=SedentaryMinutes, y=Calories)) + geom_point() + geom_smooth(method = "lm") + stat_regline_equation(label.x=0, label.y=3700) + stat_cor(aes(label=..r.label..), label.x=0, label.y=3200)
 
@@ -242,14 +245,18 @@ va <- ggplot(data=daily_activity, aes(x=VeryActiveMinutes, y=Calories)) + geom_p
 
 ggarrange(sm, la, fa, va, labels = c("A", "B", "C", "D"), ncol = 2, nrow = 2)
 ```
-![Different Activities to Calories Burn](https://user-images.githubusercontent.com/90084874/169434593-72ed6311-de4c-4795-ab5c-48c2683be485.png)
 
 ## Average Sleep
+Lastly, let's look at the sleep log. 
 
-According to the [National Sleep Foundation guidelines](https://pubmed.ncbi.nlm.nih.gov/29073412/), it is recommended for adults (18 to 64 years old) to sleep at a minimum of 7 to 9 hours. Based on the bar graph below, we reviewed our candidates who logged their sleep times and discovered an interesting trend. During the middle of the week, Wednesday, and weekend (Saturday and Sunday), people were sleeping at a minimum of 7 hours of sleeps. At the other nights, people struggled to get 7 hours of sleep. 
+![Sheet 5 (1)](https://user-images.githubusercontent.com/90084874/169905330-9dfb4e3d-2fa1-4cb4-9483-7db830794769.png)
+
+According to the [National Sleep Foundation guidelines](https://pubmed.ncbi.nlm.nih.gov/29073412/), it is recommended for adults (18 to 64 years old) to sleep at a minimum of _7 to 9 hours_. We reviewed our participants who logged their sleep times and discovered an interesting trend. During the middle of the week, Wednesday, and weekend (Saturday and Sunday), people were sleeping at a minimum of 7 hours of sleep. However, at other nights, people struggled to obtain 7 hours of sleep. **We can conclude that only 3 days of the week, people are sleeping the minimum 7 hours.**
 
 
+_The following SQL query was used:_
 
+_Note that this uses the INNER JOIN function to join sleepDay table to dailyActivity table._
 ```
 SELECT 
   d.Id, d.ActivityDate, TotalMinutesAsleep, TotalMinutesAsleep/60 AS TotalHoursAsleep,
@@ -259,8 +266,6 @@ INNER JOIN fitbit_data.sleepDay AS s
 ON d.Id = s.Id AND d.ActivityDate = s.SleepDay
 ORDER BY ActivityDate ASC;
 ```
-
-![Sheet 5 (1)](https://user-images.githubusercontent.com/90084874/169905330-9dfb4e3d-2fa1-4cb4-9483-7db830794769.png)
 
 
 # Recommendations
