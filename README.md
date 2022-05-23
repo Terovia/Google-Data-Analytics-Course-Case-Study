@@ -164,8 +164,7 @@ ORDER BY avg_steps ASC;
 Since we know the Fitbit is worn by many different users, we want to determine the wear usage to further understand when users wear their smart watches.
 In the following set, I distribute across the  
 
-![Dashboard 1](https://user-images.githubusercontent.com/90084874/169177282-10206eb9-1506-470b-a808-30af82f2d59a.png)
-
+![Dashboard 1 (2)](https://user-images.githubusercontent.com/90084874/169906529-5fd30c2a-506d-4239-8472-5c642ad5ac86.png)
 
 
 ## Steps?
@@ -176,8 +175,7 @@ TBD: Explain relationship of image.
 According to [CDC guidelines](https://www.cdc.gov/diabetes/prevention/pdf/postcurriculum_session8.pdf), most adults should aim for a daily goal of 10,000 steps.
 
 
-![Sheet 4](https://user-images.githubusercontent.com/90084874/169181834-26a7dee2-ff9b-4d66-a1e9-76791b05a89d.png)
-
+![Sheet 4 (1)](https://user-images.githubusercontent.com/90084874/169905162-cd96d349-473a-4af3-934a-c261fdcb6dd0.png)
 
 ```
 # Below is a list of distinct IDs with average steps for the whole month split into days of the week.
@@ -217,4 +215,9 @@ va <- ggplot(data=daily_activity, aes(x=VeryActiveMinutes, y=Calories)) + geom_p
 ggarrange(sm, la, fa, va, labels = c("A", "B", "C", "D"), ncol = 2, nrow = 2)
 ```
 ![Different Activities to Calories Burn](https://user-images.githubusercontent.com/90084874/169434593-72ed6311-de4c-4795-ab5c-48c2683be485.png)
+
+## Average Sleep per Week
+
+
+![Sheet 5 (1)](https://user-images.githubusercontent.com/90084874/169905330-9dfb4e3d-2fa1-4cb4-9483-7db830794769.png)
 
