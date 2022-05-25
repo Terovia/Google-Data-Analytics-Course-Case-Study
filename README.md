@@ -269,4 +269,10 @@ ORDER BY ActivityDate ASC;
 
 
 # Recommendations
+We have discovered that different types of people wear smart watches. They can range from many activity levels, from sedentary to very active people. We also noticed that people often wear their smart watches because these offer many features, such as tracking steps, monitoring heart rate, monitoring calorie burn, and sleep.
 
+Even though smart watches offer many cool features that can better their health, we noticed that not many people walk a goal amount of 10,000 steps. As such, Bellabeat should notify users to reach 10,000 steps. **One way is to have a daily reminder of how many more remaining steps to reach 10,000 steps.** **If Bellabeat can also obtain geographical information, relay that to the user and suggest a scenic route to complete their goal, this can be very useful for people who prefer to walk around scenic areas.**
+
+We also looked at how being very active can lead to more calorie burn. **If Bellabeat can promote their devices used in high intensity interval training, users will start to see how effective their devices record heart rate and calorie burn in an exercise session.**
+
+Lastly, **Bellabeat should promote better sleep reminders and encourage users to wear their Bellabeat Leaf (watch) to sleep. **Although wearing a watch can be uncomfortable while sleeping, Bellabeat should look into comfortable watch bands so that people will often wear their watch all day. **We also see that their Bellabeat Leaf can last for up to 6 months, which doesn’t require overnight charging. If Bellabeat can advertise this functionality, people will more likely equip their Bellabeat Leaf all the time, even while sleeping. **
