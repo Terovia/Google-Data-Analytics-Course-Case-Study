@@ -1,4 +1,4 @@
-# Google Data Analytics Course Case Study (Bellabeat)
+# Bellabeat Case Study using Fitbit Health Data
 
 <p align="center">
   <img 
