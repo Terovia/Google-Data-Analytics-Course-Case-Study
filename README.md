@@ -63,8 +63,6 @@ weightLogInfo_merged | Weight log (pounds and kilograms) of 8 users in 31 days. 
 # Process Phase
 I will be utilizing Microsoft Excel and Google BigQuery to ensure the dataset is clean, free from errors, and ready for analysis.
 
-I will be utilizing Microsoft Excel and Google BigQuery to ensure the dataset is clean, free from errors, and ready for analysis.
-
 My analysis will focus on the following datasets:
 - dailyActivity_merged (renamed to dailyActivity from herein)
 - dailySteps_merged (renamed to dailySteps from herein)
@@ -279,4 +277,4 @@ Even though smartwatches offer many cool features that can better their health, 
 
 We also looked at how being very active can lead to more calorie burn. **If Bellabeat can promote their devices used in high-intensity interval training, users will start seeing how effectively their devices record heart rate and calorie burn in an exercise session.**
 
-Lastly, **Bellabeat should promote better sleep reminders and encourage users to wear their Bellabeat Leaf (watch) to sleep. **Although wearing a watch can be uncomfortable while sleeping, Bellabeat should look into comfortable watch bands so that people will often wear their watch all day. **We also see that their Bellabeat Leaf can last for 6 months, which doesn’t require overnight charging. If Bellabeat can advertise this functionality, people will more likely equip their Bellabeat Leaf all the time, even while sleeping. **
+Lastly, **Bellabeat should promote better sleep reminders and encourage users to wear their Bellabeat Leaf (watch) to sleep.** **Although wearing a watch can be uncomfortable while sleeping, Bellabeat should look into comfortable watch bands so that people will often wear their watch all day. **We also see that their Bellabeat Leaf can last for 6 months, which doesn’t require overnight charging. If Bellabeat can advertise this functionality, people will more likely equip their Bellabeat Leaf all the time, even while sleeping. **
